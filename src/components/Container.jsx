@@ -1,6 +1,6 @@
 export const Container = ({ children }) => {
     return (
-        <div className="max-w-7xl px-4 h-full mx-auto">
+        <div className="max-w-[88rem] mx-auto px-10 ">
             {children}
         </div>
     )
