@@ -12,16 +12,16 @@ const stats = [
 export default function Achievement() {
     return (
         <div className="bg-bgprimary h-auto w-full pb-10 ">
-            <Container>
+            <Container className="px-4">
                 <div className="h-full w-full bg-gradient-to-t to-bgprimary from-transparent">
                     <div className="w-full flex flex-col items-center pt-4">
                         <h3 className="text-center text-[30px] font-extralight text-text-primary">We Take Pride in Our Training Excellence</h3>
                     </div>
                     <div>
                         <div className="text-red-400 pt-20">
-                            <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+                            <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 text-center md:border-none ">
                                 {stats.map((item, index) => (
-                                    <div key={index} className="flex flex-col gap-4 ">
+                                    <div key={index} className="flex flex-col gap-4 border border-text-secondary md:border-none py-14">
                                         <h2 className="text-6xl font-extralight font-global">{item.value}</h2>
                                         <p className="text-text-secondary px-4 mt-2">{item.label}</p>
                                         <div className="mt-2 h-1 w-[80%] mx-auto bg-text-secondary rounded-full"></div>

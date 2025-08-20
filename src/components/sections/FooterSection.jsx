@@ -5,12 +5,12 @@ export default function FooterSection() {
     return (
         <footer className="bg-bgprimary text-gray-300 py-20 ">
 
-            <Container>
+            <Container className="px-4">
 
 
-                <div className="max-w-full  mx-auto  grid grid-cols-1 md:grid-cols-4  gap-8">
+                <div className="max-w-full  mx-auto sm:grid-cols-2 sm:gap-x-20 grid grid-cols-1 md:grid-cols-4  gap-8">
 
-                {/* Company Info */}
+                    {/* Company Info */}
                     <div className="">
                         <div className="flex items-center space-x-2">
                             <span className="text-red-500 text-3xl font-bold">≋</span>
@@ -62,7 +62,7 @@ export default function FooterSection() {
                     </div>
 
                     {/* Social */}
-                    <div className="flex flex-col items-end">
+                    <div className="flex flex-col md:items-end items-start">
                         <div className="">
                             <h3 className="text-lg font-semibold text-white mb-3">Connect with Us</h3>
                             <div className="flex space-x-4">

@@ -8,12 +8,13 @@ export default function AHeroSection() {
             <div className="absolute w-full h-full bg-bgprimary -z-10 top-40">
             </div>
 
-            <Container className='px-4'>
-                <div className="w-full  md:h-[1370px] md:mb-40 md:flex flex-col md:flex-row border border-text-secondary bg-bgprimary relative ">
-                    {/* left box */}
-                    <div className="md:w-[40%]  md:h-full py-20 md:py-0 md:px-0 md:text-start text-center  md:border-r w-full  border-text-secondary border-b md:border-b-0  mx-auto h-auto">
 
-                        <div className="flex flex-col  md:w-full   mx-auto  gap-y-10 md:mt-30 lg:mt-50 md:pl-10 md:pr-4  lg:pl-28 ">
+            <Container className='px-4'>
+                <div className="w-full md:h-[1199px]  md:mb-40 md:flex flex-col md:flex-row border border-text-secondary bg-bgprimary relative ">
+                    {/* left box */}
+                    <div className="md:w-1/3 md:h-full py-20 md:py-0 md:px-0 md:text-start text-center  md:border-r w-full  border-text-secondary border-b md:border-b-0  mx-auto h-auto px-4 ">
+
+                        <div className="flex flex-col md:w-full   mx-auto  gap-y-10 md:mt-30 lg:mt-50 md:pl-10 md:pr-4  lg:pl-20">
                             <h2 className="text-3xl  text-text-primary" >
                                 Your Path to a Future-Ready IT Career
                             </h2>
@@ -24,27 +25,27 @@ export default function AHeroSection() {
                     </div>
 
                     {/* Right Box */}
-                    <div className="md:flex-1 relative md:h-[1169px]">
-                        <div className='lg:ml-30 md:ml-0 my-20 md:my-0 h-full lg:w-[34rem] z-2 relative flex items-center gap-y-20 justify-center flex-col '>
-                            <div className='md:absolute md:-top-30 md:left-0'>
+                    <div className="md:flex-1  md:h-auto min-h-auto relative">
+                        <div className='h-auto  md:px-20 flex flex-col items-center gap-y-10 my-10 md:block'>
+                            <div className='md:w-[240px] md:absolute -top-20'>
                                 <AheroCard
                                     primaryText='Comprehensive Cloud Analytics Training'
                                     secondaryText='Our cloud analytics training program is designed to equip learners with the latest tools and techniques in cloud-based data analysis and visualization, preparing them to drive insights and innovation in their organizations.'
                                 />
                             </div>
-                            <div className='md:absolute top-60 right-0'>
+                            <div className=' md:w-[240px] md:absolute  left-[340px] top-40'>
                                 <AheroCard
                                     primaryText='Accelerate Your Career in Data Science'
                                     secondaryText='Discover the world of data science at Gana Tech Solutions and gain expertise in data analysis, machine learning, and predictive modeling to solve complex business challenges and drive informed decision-making.'
                                 />
                             </div>
-                            <div className='md:absolute top-140 left-0'>
+                            <div className=' md:w-[240px] md:absolute top-[580px]'>
                                 <AheroCard
                                     primaryText='Versatile Application Development Courses'
                                     secondaryText='Explore a wide range of application development courses at Gana Tech Solutions, where you can master the skills needed to build scalable and secure applications across various platforms and technologies.'
                                 />
                             </div>
-                            <div className='md:absolute top-230 right-0'>
+                            <div className='md:w-[240px] md:absolute -bottom-20  left-[340px]'>
                                 <AheroCard
                                     primaryText='Superior Customer Experience and Support'
                                     secondaryText='At Gana Tech Solutions, we prioritize the learning experience of our students and provide exceptional support to ensure their success in the IT industry.'
