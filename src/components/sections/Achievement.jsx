@@ -21,7 +21,7 @@ export default function Achievement() {
                         <div className="text-red-400 pt-20">
                             <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
                                 {stats.map((item, index) => (
-                                    <div key={index} className="flex flex-col gap-4">
+                                    <div key={index} className="flex flex-col gap-4 ">
                                         <h2 className="text-6xl font-extralight font-global">{item.value}</h2>
                                         <p className="text-text-secondary px-4 mt-2">{item.label}</p>
                                         <div className="mt-2 h-1 w-[80%] mx-auto bg-text-secondary rounded-full"></div>

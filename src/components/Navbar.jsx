@@ -2,6 +2,7 @@ import { Container } from "./Container";
 import logo from '../assets/Logo.jpg'
 import { useState } from "react";
 import Button from "./Button";
+import { IconMenu, IconUserCircle, IconX } from '@tabler/icons-react';
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -13,21 +14,22 @@ export default function Navbar() {
 
     ]
     return (
-        <div className=" w-full top-0 left-0 z-50 bg-bgprimary">
+        <div className=" w-full top-0 left-0 z-50 bg-bgprimary fixed">
             <Container>
-                <nav className="w-full flex justify-between items-center ">
+                <nav className="w-full flex justify-between items-center px-4 py-2 md:px-0">
                     {/* Logo */}
-                    <div className="flex justify-center items-center gap-x-4">
-                        <div className="w-14 h-14 my-4 overflow-hidden rounded-full ">
+                    <div className="flex justify-center items-center gap-x-2 cursor-pointer">
+                        <div className="md:w-10 md:h-10 my-4 overflow-hidden rounded-full h-6 w-6">
                             <img src={logo} className="h-full w-full object-cover top-0" />
+
                         </div>
-                        <span className="text-xl font-semibold text-white capitalize">
+                        <span className="md:text-xl text-md font-logo font-medium text-white capitalize">
                             Gana Tech Solution
                         </span>
                     </div>
 
                     {/* Links */}
-                    <div className="md:flex justify-center items-center gap-x-6 text-white hidden  text-sm">
+                    <div className="md:flex justify-center items-center gap-x-6 text-white hidden  text-md font-logo font-extralight">
                         {
                             link.map((item, index) => (
                                 <a href={item.link}
@@ -37,37 +39,65 @@ export default function Navbar() {
                                 </a>
                             ))
                         }
-                        <div className="flex justify-center items-center gap-x-4 cursor-pointer ">
-                            <div className="w-6 h-6  overflow-hidden rounded-full ">
-                                <img src={logo} className="h-full w-full object-cover top-0" />
+                        <div className="flex justify-center items-center cursor-pointer gap-x-5">
+                            <div className="flex items-center gap-x-1 text-primary transition-colors duration-300 hover:text-text-primary">
+                                <div className="w-6 h-6 overflow-hidden rounded-full ">
+                                    <IconUserCircle />
+                                </div>
+                                <span className="text-sm font-semibold capitalize ">
+                                    Log in
+                                </span>
                             </div>
-                            <span className="text-sm font-semibold text-white capitalize hover:text-primary">
-                                Log in
-                            </span>
+
                             <Button text="Get started" className="hover:bg-primary" />
                         </div>
                     </div>
 
                     {/* Responsive */}
-                    <div className="md:hidden flex items-center justify-center cursor-pointer">
-                        <button
-                            onClick={() => { setMenuOpen(!menuOpen) }}
-                            className="w-full h-2 bg-white text-white">Menu</button>
+                    <div className="md:hidden flex items-center justify-center cursor-pointer w-9 h-9 ">
+                        {
+                            !menuOpen ? (
+                                <IconMenu
+                                    stroke={1}
+                                    className="w-full h-full dark:text-white "
+                                    onClick={() => setMenuOpen(!menuOpen)}
+                                />) : (
+                                <IconX
+                                    stroke={1}
+                                    className="w-full h-full dark:text-white "
+                                    onClick={() => setMenuOpen(!menuOpen)}
+                                />)
+                        }
+
+
+
                     </div>
 
                     {
                         menuOpen && (
-                            <div className="md:hidden absolute inset-x-0 top-16  shadow-aceternity rounded-md max-w-full mx-auto bg-bgprimary">
-                                <div className="flex flex-col items-start justify-center text-md tracking-wide gap-4 pl-4 text-white py-8 capitalize">
+                            <div className="absolute top-20 bg-bgprimary left-0 w-full h-screen px-5 ">
+                                <div className="flex flex-col items-start text-start gap-y-5 text-text-primary text-lg font-logo font-extralight">
                                     {
-                                        link.map((value, index) => (
-                                            <a
-                                                href={value.href}
-                                                key={value.href + index}
-                                                className=" hover:bg-primary transition-colors ease-in "
-                                            >{value.name}</a>
+                                        link.map((item, index) => (
+                                            <a href={item.link}
+                                                className="hover:text-primary transition-colors duration-300"
+                                            >
+                                                {item.name}
+                                            </a>
                                         ))
                                     }
+                                    <div className="flex flex-col items-start cursor-pointer gap-y-5 w-full">
+                                        <div className="flex  items-center gap-x-1 text-primary transition-colors duration-300 hover:text-text-primary">
+                                            <div className="w-6 h-6 overflow-hidden rounded-full ">
+                                                <IconUserCircle />
+                                            </div>
+                                            <span className="text-sm font-semibold capitalize ">
+                                                Log in
+                                            </span>
+                                        </div>
+
+                                        <Button text="Get started" className="bg-primary w-full flex-1 text-black shadow-xl shadow-neutral-800" />
+                                    </div>
                                 </div>
                             </div>
 
@@ -77,6 +107,6 @@ export default function Navbar() {
 
                 </nav>
             </Container >
-        </div>
+        </div >
     )
 }

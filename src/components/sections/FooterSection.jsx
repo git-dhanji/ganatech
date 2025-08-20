@@ -1,0 +1,92 @@
+import Button from "../Button";
+import { Container } from "../Container";
+
+export default function FooterSection() {
+    return (
+        <footer className="bg-bgprimary text-gray-300 py-20 ">
+
+            <Container>
+
+
+                <div className="max-w-full  mx-auto  grid grid-cols-1 md:grid-cols-4  gap-8">
+
+                {/* Company Info */}
+                    <div className="">
+                        <div className="flex items-center space-x-2">
+                            <span className="text-red-500 text-3xl font-bold">≋</span>
+                            <h2 className="text-xl font-bold text-white">Gana Tech Solutions</h2>
+                        </div>
+                        <div className="mt-4 space-y-2">
+                            <p>123-456-7890</p>
+                            <p>info@ganatech.com</p>
+                            <p>1234 Tech Boulevard</p>
+                            <p>San Francisco, CA 94158</p>
+                        </div>
+                    </div>
+
+                    {/* Links */}
+                    <div className="space-y-3">
+                        <h3 className="text-lg font-semibold text-white">Links</h3>
+                        <ul className="space-y-2">
+                            <li><a href="#" className="hover:text-white">Training</a></li>
+                            <li><a href="#" className="hover:text-white">Events</a></li>
+                            <li><a href="#" className="hover:text-white">Resources</a></li>
+                            <li><a href="#" className="hover:text-white">Blog</a></li>
+                        </ul>
+                        <Button className="bg-primary mt-2 hover:bg-transparent" />
+                    </div>
+
+                    {/* Newsletter */}
+                    <div>
+                        <h3 className="text-lg font-semibold text-white mb-3">
+                            Subscribe to Our Newsletter
+                        </h3>
+                        <form className="space-y-3">
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                                required
+                            />
+                            <div className="flex items-center space-x-2">
+                                <input type="checkbox" id="subscribe" className="accent-red-500" />
+                                <label htmlFor="subscribe">Yes, subscribe me to your newsletter.</label>
+                            </div>
+                            <button
+                                type="submit"
+                                className="w-full bg-gray-700 hover:bg-gray-600 text-white py-2 rounded"
+                            >
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+
+                    {/* Social */}
+                    <div className="flex flex-col items-end">
+                        <div className="">
+                            <h3 className="text-lg font-semibold text-white mb-3">Connect with Us</h3>
+                            <div className="flex space-x-4">
+                                <div className="h-8 w-8 bg-text-secondary flex items-center justify-center rounded-full">
+                                    <a href="#" className="text-gray-400 hover:text-white  bg-text-secondary ">🔗</a>
+                                </div>
+                                <div className="h-8 w-8 bg-text-secondary flex items-center justify-center rounded-full">
+                                    <a href="#" className="text-gray-400 hover:text-white">📘</a>
+                                </div> <div className="h-8 w-8 bg-text-secondary flex items-center justify-center rounded-full">
+                                    <a href="#" className="text-gray-400 hover:text-white">🐦</a>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                {/* Copyright */}
+                <div className="mt-10 text-center text-gray-500 text-sm">
+                    © 2023 by Gana Tech Solutions. All rights reserved.
+                </div>
+            </Container>
+        </footer>
+    );
+}

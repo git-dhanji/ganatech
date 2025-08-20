@@ -7,6 +7,7 @@ import AheroCard from "./Cards/AheroCard";
 import TrainingSection from "./sections/TrainingSection";
 import StateCard from "./Cards/StateCard";
 import OurTrainingPart from "./sections/OurTrainingPart";
+import FooterSection from "./sections/FooterSection";
 
 export {
     Container,
@@ -17,6 +18,7 @@ export {
     AheroCard,
     TrainingSection,
     StateCard,
-    OurTrainingPart
+    OurTrainingPart,
+    FooterSection,
 
 }

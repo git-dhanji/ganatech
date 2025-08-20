@@ -1,6 +1,6 @@
-export default function AheroCard({ primaryText = '', secondaryText = "", icon = '' }) {
+export default function AheroCard({ primaryText = '', secondaryText = "", icon = '', className = '' }) {
     return (
-        <div className="h-auto w-65 shadow-xl shadow-black bg-[#1B1C1E]  flex flex-col  rounded-lg pl-6 py-6 pr-10">
+        <div className={`${className} md:h-auto lg:w-65 md:w-50 shadow-xl shadow-black bg-[#1B1C1E]  flex flex-col  rounded-lg pl-6 md;py-6 py-10 pr-10 pb-14 md:pb-10  w-[90%] mx-auto overflow-hidden`}>
             {/* Icon */}
             <div className="h-10 w-10 bg-amber-300">
                 <img></img>
