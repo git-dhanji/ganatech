@@ -53,7 +53,7 @@ export default function Navbar() {
                         {link.map((item, i) => (
                             <motion.a
 
-                                className="hover:text-primary transition-colors duration-300"
+                                className="hover:text-primary transition-colors duration-300 hover:cursor-pointer"
                             >
                                 {item.name}
                             </motion.a>

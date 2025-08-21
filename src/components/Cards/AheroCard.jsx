@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-export default function AheroCard({ primaryText = '', secondaryText = "", icon = '', className = '' }) {
+export default function AheroCard({ primaryText = '', secondaryText = "", icon = '', className = '', children }) {
     const cardRef = useRef(null);
     const isInView = useInView(cardRef, {
         once: true, // Animation triggers only once
@@ -63,9 +63,11 @@ export default function AheroCard({ primaryText = '', secondaryText = "", icon =
         >
             {/* Icon */}
             <motion.div
-                className="h-10 w-10 bg-amber-300"
+                className="h-10 w-10 relative"
                 variants={itemVariants}
+
             >
+                {children}
             </motion.div>
 
             {/* Primary Text */}

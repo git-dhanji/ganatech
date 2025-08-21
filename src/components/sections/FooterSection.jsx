@@ -1,6 +1,7 @@
 import Button from "../Button";
 import { Container } from "../Container";
 import { motion } from "framer-motion";
+import { IconBrandLinkedinFilled, IconBrandFacebook, IconBrandTwitter } from '@tabler/icons-react'
 
 export default function FooterSection() {
     return (
@@ -57,12 +58,9 @@ export default function FooterSection() {
                                 <input type="checkbox" id="subscribe" className="accent-red-500" />
                                 <label htmlFor="subscribe">Yes, subscribe me to your newsletter.</label>
                             </div>
-                            <button
-                                type="submit"
-                                className="w-full bg-gray-700 hover:bg-gray-600 text-white py-2 rounded"
-                            >
-                                Submit
-                            </button>
+                            <Button
+                                className="hover:bg-blue-500 hover:border-none scale-x-105"
+                            />
                         </form>
                     </div>
 
@@ -70,14 +68,14 @@ export default function FooterSection() {
                     <div className="flex flex-col md:items-end items-start">
                         <h3 className="text-lg font-semibold text-white mb-3">Connect with Us</h3>
                         <div className="flex space-x-4">
-                            <div className="h-8 w-8 bg-text-secondary flex items-center justify-center rounded-full">
-                                <a href="#" className="text-gray-400 hover:text-white">🔗</a>
+                            <div className="h-8 w-8 overflow-hidden border border-text-secondary flex items-center justify-center rounded-full">
+                                <IconBrandLinkedinFilled className="text-primary  cursor-pointer p-1 text-center h-10 w-10" />
                             </div>
-                            <div className="h-8 w-8 bg-text-secondary flex items-center justify-center rounded-full">
-                                <a href="#" className="text-gray-400 hover:text-white">📘</a>
+                            <div className="h-8 w-8 overflow-hidden border border-text-secondary flex items-center justify-center rounded-full">
+                                <IconBrandFacebook className="text-primary w-full h-full cursor-pointer p-1 text-center" />
                             </div>
-                            <div className="h-8 w-8 bg-text-secondary flex items-center justify-center rounded-full">
-                                <a href="#" className="text-gray-400 hover:text-white">🐦</a>
+                            <div className="h-8 w-8 overflow-hidden border border-text-secondary flex items-center justify-center rounded-full">
+                                <IconBrandTwitter className="text-primary w-full h-full cursor-pointer p-1 text-center" />
                             </div>
                         </div>
                     </div>

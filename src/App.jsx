@@ -16,6 +16,17 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Always scroll to top on reload/refresh
+    window.history.scrollRestoration = "manual";
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant" // use "smooth" if you want animation
+    });
+  }, []);
+
   // Calculate scale based on scroll position
   const scale = 1 + (scrollY / window.innerHeight) * 0.1; // Scale from 1 to 2
 

@@ -2,6 +2,8 @@ import { AheroCard, Container } from '../index'
 import { motion, useScroll, useTransform } from "framer-motion"
 import { hero2image } from '../images';
 import { useRef } from 'react';
+// import icons 
+import { IconCloudCode, IconStack2, IconBrandSentry, IconUsers } from '@tabler/icons-react'
 
 const cardVariants = {
     hidden: { opacity: 0, y: 150 },
@@ -11,6 +13,8 @@ const cardVariants2 = {
     hidden: { opacity: 0, y: 150 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: "easeOut" } },
 };
+
+const myMargin = { margin: "0px 0px 0px 0px" }
 
 export default function AHeroSection() {
     const sectionRef = useRef(null);
@@ -54,18 +58,18 @@ export default function AHeroSection() {
                                 className="text-3xl text-text-primary"
                                 initial={{ opacity: 0, x: -50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 1 }}
-                                viewport={{ once: true, margin: '0px 0px -50px 0px' }}
+                                transition={{ duration: 0.5 }}
+                                viewport={{ once: true, margin: myMargin.margin }}
                             >
                                 Your Path to a Future- <br />Ready IT Career
                             </motion.h2>
 
                             <motion.p
-                                className="text-text-secondary text-lg md:text-start text-center lg:pr-20"
+                                className="text-text-secondary text-lg md:text-start text-center lg:pr-20 overflow-hidden"
                                 initial={{ opacity: 0, x: -50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 1.2, delay: 0.2 }}
-                                viewport={{ once: true, margin: "0px 0px -70px 0px" }}
+                                transition={{ duration: 0.5, delay: 0.2 }}
+                                viewport={{ once: true, margin: myMargin.margin }}
                             >
                                 At Gana Tech Solutions, we are dedicated to providing a platform for individuals to transform their IT skills and knowledge...
                             </motion.p>
@@ -85,10 +89,11 @@ export default function AHeroSection() {
                                 viewport={{
                                     once: true,
                                     amount: 0.2,
-                                    margin: "0px 0px -70px 0px"
+                                    margin: myMargin.margin
                                 }}
                             >
                                 <AheroCard
+                                    children={<IconCloudCode className='text-primary h-full w-full' />}
                                     primaryText="Comprehensive Cloud Analytics Training"
                                     secondaryText="Our cloud analytics training program is designed to equip learners with the latest tools and techniques in cloud-based data analysis and visualization, preparing them to drive insights and innovation in their organizations."
                                 />
@@ -99,14 +104,15 @@ export default function AHeroSection() {
                                 variants={cardVariants2}
                                 initial="hidden"
                                 whileInView="visible"
-                                transition={{ delay: 1 }}
+                                transition={{ delay: 0.5 }}
                                 viewport={{
                                     once: true,
                                     amount: 0.2,
-                                    margin: "0px 0px -70px 0px"
+                                    margin: myMargin.margin
                                 }}
                             >
                                 <AheroCard
+                                    children={<IconStack2 className='h-full w-full text-primary' />}
                                     primaryText="Accelerate Your Career in Data Science"
                                     secondaryText="Discover the world of data science at Gana Tech Solutions and gain expertise in data analysis, machine learning, and predictive modeling to solve complex business challenges and drive informed decision-making."
                                 />
@@ -117,14 +123,15 @@ export default function AHeroSection() {
                                 variants={cardVariants}
                                 initial="hidden"
                                 whileInView="visible"
-                                transition={{ delay: 1.2 }}
+                                transition={{ delay: 0.5 }}
                                 viewport={{
                                     once: true,
                                     amount: 0.2,
-                                    margin: "0px 0px -70px 0px"
+                                    margin: myMargin.margin
                                 }}
                             >
                                 <AheroCard
+                                    children={<IconBrandSentry className='h-full w-full text-primary' />}
                                     primaryText="Versatile Application Development Courses"
                                     secondaryText="Explore a wide range of application development courses at Gana Tech Solutions, where you can master the skills needed to build scalable and secure applications across various platforms and technologies"
                                 />
@@ -135,14 +142,15 @@ export default function AHeroSection() {
                                 variants={cardVariants2}
                                 initial="hidden"
                                 whileInView="visible"
-                                transition={{ delay: 0.6 }}
+                                transition={{ delay: 0.3 }}
                                 viewport={{
                                     once: true,
                                     amount: 0.2,
-                                    margin: "0px 0px -70px 0px"
+                                    margin: myMargin.margin
                                 }}
                             >
                                 <AheroCard
+                                    children={<IconUsers className='h-full w-full text-primary' />}
                                     primaryText="Superior Customer Experience and Support"
                                     secondaryText="At Gana Tech Solutions, we prioritize the learning experience of our students and provide exceptional support to ensure their success in the IT industry."
                                 />
