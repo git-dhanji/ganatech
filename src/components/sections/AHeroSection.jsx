@@ -1,63 +1,157 @@
-
-
 import { AheroCard, Container } from '../index'
+import { motion, useScroll, useTransform } from "framer-motion"
+import { hero2image } from '../images';
+import { useRef } from 'react';
+
+const cardVariants = {
+    hidden: { opacity: 0, y: 150 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: "easeOut" } },
+};
+const cardVariants2 = {
+    hidden: { opacity: 0, y: 150 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: "easeOut" } },
+};
 
 export default function AHeroSection() {
+    const sectionRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start end", "end start"]
+    });
+
+    // Scale from 1 to 1.3 as user scrolls
+    const scale = useTransform(scrollYProgress, [0, 1], [1, 1.4]);
+
+    // Move from right to left (start at 50px right, end at -20px left)
+    const x = useTransform(scrollYProgress, [0, 1], [50, -30]);
+
     return (
-        <div className="h-auto w-full mt-80 relative">
-            <div className="absolute w-full h-full bg-bgprimary -z-10 top-40">
-            </div>
+        <div ref={sectionRef} className="h-auto w-full mt-80 relative">
+            <div className="absolute w-full h-full bg-bgprimary -z-10 top-40"></div>
 
+            <Container className="px-4">
+                <div className="w-full md:h-[1199px] md:mb-40 md:flex flex-col md:flex-row border border-text-secondary bg-bgprimary relative">
 
-            <Container className='px-4'>
-                <div className="w-full md:h-[1199px]  md:mb-40 md:flex flex-col md:flex-row border border-text-secondary bg-bgprimary relative ">
-                    {/* left box */}
-                    <div className="md:w-1/3 md:h-full py-20 md:py-0 md:px-0 md:text-start text-center  md:border-r w-full  border-text-secondary border-b md:border-b-0  mx-auto h-auto px-4 ">
+                    {/* Left box */}
+                    <div className="md:w-1/3 py-20 md:py-0 text-center md:text-start md:border-r w-full border-text-secondary border-b md:border-b-0 px-4 relative overflow-hidden">
+                        <motion.img
+                            src={hero2image}
+                            className='absolute top-0 h-full w-full inset-0 object-cover'
+                            style={{
+                                scale,
+                                x,
+                                willChange: 'transform'
+                            }}
+                            transition={{
+                                type: "tween",
+                                ease: "linear",
+                                duration: 0
+                            }}
+                        />
+                        <motion.div className="flex flex-col gap-y-10 md:mt-30 lg:mt-50 md:pl-10 lg:pl-10 relative z-10"
+                        >
+                            <motion.h2
+                                className="text-3xl text-text-primary"
+                                initial={{ opacity: 0, x: -50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 1 }}
+                                viewport={{ once: true, margin: '0px 0px 70px 0px' }}
+                            >
+                                Your Path to a Future- <br />Ready IT Career
+                            </motion.h2>
 
-                        <div className="flex flex-col md:w-full   mx-auto  gap-y-10 md:mt-30 lg:mt-50 md:pl-10 md:pr-4  lg:pl-20">
-                            <h2 className="text-3xl  text-text-primary" >
-                                Your Path to a Future-Ready IT Career
-                            </h2>
-                            <p className="text-text-secondary text-center lg:pr-20 md:text-start text-lg">
-                                At Gana Tech Solutions, we are dedicated to providing a platform for individuals to transform their IT skills and knowledge. Our industry-aligned curriculum and expert-led training empower learners to elevate their careers in the dynamic world of IT.
-                            </p>
-                        </div>
+                            <motion.p
+                                className="text-text-secondary text-lg md:text-start text-center lg:pr-20"
+                                initial={{ opacity: 0, x: -50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 1.2, delay: 0.2 }}
+                                viewport={{ once: true, margin: "0px 0px 70px 0px" }}
+                            >
+                                At Gana Tech Solutions, we are dedicated to providing a platform for individuals to transform their IT skills and knowledge...
+                            </motion.p>
+                        </motion.div>
                     </div>
 
-                    {/* Right Box */}
-                    <div className="md:flex-1  md:h-auto min-h-auto relative">
-                        <div className='h-auto  md:px-20 flex flex-col items-center gap-y-10 my-10 md:block'>
-                            <div className='md:w-[240px] md:absolute -top-20'>
+                    {/* Right box */}
+                    <div className="md:flex-1 relative">
+                        <div className="h-auto md:px-20 flex flex-col items-center gap-y-10 my-10 md:block">
+
+                            <motion.div
+                                className="md:w-[240px] md:absolute -top-20"
+                                variants={cardVariants}
+                                initial="hidden"
+                                whileInView="visible"
+                                transition={{ delay: 1 }}
+                                viewport={{
+                                    once: true,
+                                    amount: 0.2,
+                                    margin: "0px 0px -70px 0px"
+                                }}
+                            >
                                 <AheroCard
-                                    primaryText='Comprehensive Cloud Analytics Training'
-                                    secondaryText='Our cloud analytics training program is designed to equip learners with the latest tools and techniques in cloud-based data analysis and visualization, preparing them to drive insights and innovation in their organizations.'
+                                    primaryText="Comprehensive Cloud Analytics Training"
+                                    secondaryText="Our cloud analytics training program is designed to equip learners with the latest tools and techniques in cloud-based data analysis and visualization, preparing them to drive insights and innovation in their organizations."
                                 />
-                            </div>
-                            <div className=' md:w-[240px] md:absolute  left-[340px] top-40'>
+                            </motion.div>
+
+                            <motion.div
+                                className="md:w-[240px] md:absolute left-[340px] top-40"
+                                variants={cardVariants2}
+                                initial="hidden"
+                                whileInView="visible"
+                                transition={{ delay: 1 }}
+                                viewport={{
+                                    once: true,
+                                    amount: 0.2,
+                                    margin: "0px 0px -70px 0px"
+                                }}
+                            >
                                 <AheroCard
-                                    primaryText='Accelerate Your Career in Data Science'
-                                    secondaryText='Discover the world of data science at Gana Tech Solutions and gain expertise in data analysis, machine learning, and predictive modeling to solve complex business challenges and drive informed decision-making.'
+                                    primaryText="Accelerate Your Career in Data Science"
+                                    secondaryText="Discover the world of data science at Gana Tech Solutions and gain expertise in data analysis, machine learning, and predictive modeling to solve complex business challenges and drive informed decision-making."
                                 />
-                            </div>
-                            <div className=' md:w-[240px] md:absolute top-[580px]'>
+                            </motion.div>
+
+                            <motion.div
+                                className="md:w-[240px] md:absolute top-[580px]"
+                                variants={cardVariants}
+                                initial="hidden"
+                                whileInView="visible"
+                                transition={{ delay: 1.2 }}
+                                viewport={{
+                                    once: true,
+                                    amount: 0.2,
+                                    margin: "0px 0px -70px 0px"
+                                }}
+                            >
                                 <AheroCard
-                                    primaryText='Versatile Application Development Courses'
-                                    secondaryText='Explore a wide range of application development courses at Gana Tech Solutions, where you can master the skills needed to build scalable and secure applications across various platforms and technologies.'
+                                    primaryText="Versatile Application Development Courses"
+                                    secondaryText="Explore a wide range of application development courses at Gana Tech Solutions, where you can master the skills needed to build scalable and secure applications across various platforms and technologies"
                                 />
-                            </div>
-                            <div className='md:w-[240px] md:absolute -bottom-20  left-[340px]'>
+                            </motion.div>
+
+                            <motion.div
+                                className="md:w-[240px] md:absolute -bottom-20 left-[340px]"
+                                variants={cardVariants2}
+                                initial="hidden"
+                                whileInView="visible"
+                                transition={{ delay: 0.6 }}
+                                viewport={{
+                                    once: true,
+                                    amount: 0.2,
+                                    margin: "0px 0px -70px 0px"
+                                }}
+                            >
                                 <AheroCard
-                                    primaryText='Superior Customer Experience and Support'
-                                    secondaryText='At Gana Tech Solutions, we prioritize the learning experience of our students and provide exceptional support to ensure their success in the IT industry.'
+                                    primaryText="Superior Customer Experience and Support"
+                                    secondaryText="At Gana Tech Solutions, we prioritize the learning experience of our students and provide exceptional support to ensure their success in the IT industry."
                                 />
-                            </div>
+                            </motion.div>
 
                         </div>
-
                     </div>
-
                 </div>
             </Container>
         </div>
-    )
-} ``
+    );
+}
