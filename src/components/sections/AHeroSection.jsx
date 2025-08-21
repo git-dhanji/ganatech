@@ -23,7 +23,7 @@ export default function AHeroSection() {
     const scale = useTransform(scrollYProgress, [0, 1], [1, 1.4]);
 
     // Move from right to left (start at 50px right, end at -20px left)
-    const x = useTransform(scrollYProgress, [0, 1], [50, -30]);
+    const x = useTransform(scrollYProgress, [0, 1], [0, 10]);
 
     return (
         <div ref={sectionRef} className="h-auto w-full mt-80 relative">
@@ -33,10 +33,10 @@ export default function AHeroSection() {
                 <div className="w-full md:h-[1199px] md:mb-40 md:flex flex-col md:flex-row border border-text-secondary bg-bgprimary relative">
 
                     {/* Left box */}
-                    <div className="md:w-1/3 py-20 md:py-0 text-center md:text-start md:border-r w-full border-text-secondary border-b md:border-b-0 px-4 relative overflow-hidden">
+                    <div className="md:w-1/3 py-20 md:py-0 text-center md:text-start md:border-r w-full border-text-secondary border-b md:border-b-0 px-4 relative overflow-hidden bg-red-50">
                         <motion.img
                             src={hero2image}
-                            className='absolute top-0 h-full w-full inset-0 object-cover'
+                            className='absolute top-0 h-full md:w-full inset-0 object-cover w-[100vw]'
                             style={{
                                 scale,
                                 x,
@@ -55,7 +55,7 @@ export default function AHeroSection() {
                                 initial={{ opacity: 0, x: -50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 1 }}
-                                viewport={{ once: true, margin: '0px 0px 70px 0px' }}
+                                viewport={{ once: true, margin: '0px 0px -50px 0px' }}
                             >
                                 Your Path to a Future- <br />Ready IT Career
                             </motion.h2>
@@ -65,7 +65,7 @@ export default function AHeroSection() {
                                 initial={{ opacity: 0, x: -50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 1.2, delay: 0.2 }}
-                                viewport={{ once: true, margin: "0px 0px 70px 0px" }}
+                                viewport={{ once: true, margin: "0px 0px -70px 0px" }}
                             >
                                 At Gana Tech Solutions, we are dedicated to providing a platform for individuals to transform their IT skills and knowledge...
                             </motion.p>

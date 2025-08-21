@@ -1,17 +1,22 @@
 import Button from "../Button";
 import { Container } from "../Container";
+import { motion } from "framer-motion";
 
 export default function FooterSection() {
     return (
-        <footer className="bg-bgprimary text-gray-300 py-20 ">
-
+        <footer className="bg-bgprimary text-gray-300 py-20">
             <Container className="px-4">
 
-
-                <div className="max-w-full  mx-auto sm:grid-cols-2 sm:gap-x-20 grid grid-cols-1 md:grid-cols-4  gap-8">
-
+                {/* Animate whole footer content */}
+                <motion.div
+                    initial={{ opacity: 0, y: 80 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+                    className="max-w-full mx-auto sm:grid-cols-2 sm:gap-x-20 grid grid-cols-1 md:grid-cols-4 gap-8"
+                >
                     {/* Company Info */}
-                    <div className="">
+                    <div>
                         <div className="flex items-center space-x-2">
                             <span className="text-red-500 text-3xl font-bold">≋</span>
                             <h2 className="text-xl font-bold text-white">Gana Tech Solutions</h2>
@@ -63,29 +68,31 @@ export default function FooterSection() {
 
                     {/* Social */}
                     <div className="flex flex-col md:items-end items-start">
-                        <div className="">
-                            <h3 className="text-lg font-semibold text-white mb-3">Connect with Us</h3>
-                            <div className="flex space-x-4">
-                                <div className="h-8 w-8 bg-text-secondary flex items-center justify-center rounded-full">
-                                    <a href="#" className="text-gray-400 hover:text-white  bg-text-secondary ">🔗</a>
-                                </div>
-                                <div className="h-8 w-8 bg-text-secondary flex items-center justify-center rounded-full">
-                                    <a href="#" className="text-gray-400 hover:text-white">📘</a>
-                                </div> <div className="h-8 w-8 bg-text-secondary flex items-center justify-center rounded-full">
-                                    <a href="#" className="text-gray-400 hover:text-white">🐦</a>
-                                </div>
-
-
+                        <h3 className="text-lg font-semibold text-white mb-3">Connect with Us</h3>
+                        <div className="flex space-x-4">
+                            <div className="h-8 w-8 bg-text-secondary flex items-center justify-center rounded-full">
+                                <a href="#" className="text-gray-400 hover:text-white">🔗</a>
+                            </div>
+                            <div className="h-8 w-8 bg-text-secondary flex items-center justify-center rounded-full">
+                                <a href="#" className="text-gray-400 hover:text-white">📘</a>
+                            </div>
+                            <div className="h-8 w-8 bg-text-secondary flex items-center justify-center rounded-full">
+                                <a href="#" className="text-gray-400 hover:text-white">🐦</a>
                             </div>
                         </div>
-
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Copyright */}
-                <div className="mt-10 text-center text-gray-500 text-sm">
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 1.2, delay: 0.3 }}
+                    viewport={{ once: true }}
+                    className="mt-10 text-center text-gray-500 text-sm"
+                >
                     © 2023 by Gana Tech Solutions. All rights reserved.
-                </div>
+                </motion.div>
             </Container>
         </footer>
     );
